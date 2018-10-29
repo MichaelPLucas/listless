@@ -1,0 +1,20 @@
+<svg width="438" height="189" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+ <defs>
+  <filter id="svg_1_blur">
+   <feGaussianBlur stdDeviation="0" in="SourceGraphic"/>
+  </filter>
+ </defs>
+ <g>
+  <title>background</title>
+  <rect fill="#fff" id="canvas_background" height="191" width="440" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <path stroke="#000" id="svg_4" d="m109.077262,180.000001l-106.577262,-20.127827l432.999998,17.173914l-164.40618,-36.546089" opacity="0.5" stroke-opacity="null" stroke-width="0" fill="#ff0000"/>
+  <text font-weight="normal" filter="url(#svg_1_blur)" transform="matrix(4.389350847110876,0,0,5.895005834050437,-1746.4630430874442,-1069.4922038588843) " font-style="normal" stroke="#000" xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_1" y="203.754505" x="403.60719" stroke-width="0" fill="#000000">Listless</text>
+ </g>
+</svg>

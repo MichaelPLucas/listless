@@ -1,1 +1,23 @@
-
+<header class="app-header row">
+  <div class="col-md-2">
+    <button class="drawer btn"></button>
+    <a href="/">
+      <img class="logo" src="<%= static_path(@conn, "/images/logo.svg") %>" />
+    </a>
+  </div>
+  <div class="col-md-8">
+    <form style="height: 100px;">
+      <div class="input-group" style="top: 25px; height: 50px;">
+        <input class="form-control" style="height: 100%;">
+        <span class="input-group-btn" style="height: 100%;">
+          <button class="btn btn-default" style="height: 100%; width: 50px;">
+            <span class="glyphicon glyphicon-search" />
+          </button>
+        </span>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-2">
+    <button class="profile btn"></button>
+  </div>
+</header>
