@@ -1,4 +1,14 @@
 /* This file is for your main application css. */
+@font-face {
+  font-family: 'Glyphs';
+  src:  url('/static/fonts/glyphicons-halflings-regular.woff2') format('woff2'),
+        url('/static/fonts/glyphicons-halflings-regular.woff') format('woff');
+}
+
+.glyphicon {
+  font-family: 'Glyphs', sans-serif;
+}
+
 .app-header {
   padding: 15px;
   background: -moz-linear-gradient(bottom, rgba(0,0,0,.5) 0%, rgba(0,0,0,.3) 1%, rgba(0,0,0,0) 5%, rgba(0,0,0,0) 100%); /* FF3.6-15 */

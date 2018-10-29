@@ -1,6 +1,8 @@
 <header class="app-header row">
   <div class="col-md-2">
-    <button class="drawer btn"></button>
+    <button class="drawer btn btn-default">
+      <span class="glyphicon glyphicon-menu-hamburger" />
+    </button>
     <a href="/">
       <img class="logo" src="<%= static_path(@conn, "/images/logo.svg") %>" />
     </a>
@@ -18,6 +20,12 @@
     </form>
   </div>
   <div class="col-md-2">
-    <button class="profile btn"></button>
+    <button class="profile btn btn-default"></button>
   </div>
 </header>
+<subject class="row">
+</subject>
+<article>
+</article>
+<footer class="row">
+</footer>
