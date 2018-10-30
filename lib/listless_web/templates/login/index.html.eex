@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-md-3"></div> <!-- Spacer -->
+  <div class="col-md-2" style="padding-top: 310px">
+    <form style="text-align: center;">
+      <h3 class="h3 mb-3 font-weight-normal">Log in</h3>
+      <div class="login-form-group">
+        <input class="form-control" id="login-email" required>
+        <label for="login-email" class="form-control-placeholder">Email Address</label>
+      </div>
+      <div class="login-form-group">
+        <input type="password" class="form-control" id="login-pwd" required>
+        <label for="login-pwd" class="form-control-placeholder">Password</label>
+      </div>
+      <button class="btn btn-default login-btn">Log in</button>
+    </form>
+  </div>
+  <div class="col-md-2" style="text-align: center;">
+    <img src="<%= static_path(@conn, "/images/logo.svg") %>" style="width: 75%; height: 100px; margin-top: 75px; margin-bottom: 75px;" />
+  </div>
+  <div class="col-md-2" style="padding-top: 250px">
+    <form style="text-align: center;">
+      <h3 class="h3 mb-3 font-weight-normal">Sign up</h3>
+      <div class="login-form-group">
+        <input class="form-control" id="signup-email" required>
+        <label for="signup-email" class="form-control-placeholder">Email Address</label>
+      </div>
+      <div class="login-form-group">
+        <input class="form-control" id="signup-name" required>
+        <label for="signup-name" class="form-control-placeholder">Display Name</label>
+      </div>
+      <div class="login-form-group">
+        <input type="password" class="form-control" id="signup-pwd" required>
+        <label for="signup-pwd" class="form-control-placeholder">Password</label>
+      </div>
+      <div class="login-form-group">
+        <input type="password" class="form-control" id="signup-pwd-confirm" required>
+        <label for="signup-pwd-confirm" class="form-control-placeholder">Confirm Password</label>
+      </div>
+      <button class="btn btn-default login-btn">Sign up</button>
+    </form>
+  </div>
+  <div class="col-md-3"></div> <!-- Spacer -->
+</div>
