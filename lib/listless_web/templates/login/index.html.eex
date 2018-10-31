@@ -1,4 +1,6 @@
-<div class="row">
+<img class="login-logo" src="<%= static_path(@conn, "/images/logo.svg") %>" />
+<div class="vertical-divider"></div>
+<div class="row" style="width: 100%;">
   <div class="col-md-3"></div> <!-- Spacer -->
   <div class="col-md-2" style="padding-top: 310px">
     <form style="text-align: center;">
@@ -14,9 +16,7 @@
       <button class="btn btn-default login-btn">Log in</button>
     </form>
   </div>
-  <div class="col-md-2" style="text-align: center;">
-    <img src="<%= static_path(@conn, "/images/logo.svg") %>" style="width: 75%; height: 100px; margin-top: 75px; margin-bottom: 75px;" />
-  </div>
+  <div class="col-md-2" style="text-align: center;"></div> <!-- Spacer -->
   <div class="col-md-2" style="padding-top: 250px">
     <form style="text-align: center;">
       <h3 class="h3 mb-3 font-weight-normal">Sign up</h3>
@@ -39,5 +39,4 @@
       <button class="btn btn-default login-btn">Sign up</button>
     </form>
   </div>
-  <div class="col-md-3"></div> <!-- Spacer -->
 </div>
