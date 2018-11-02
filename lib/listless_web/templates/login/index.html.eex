@@ -1,42 +1,52 @@
+<%
+  info = get_flash(@conn, :info)
+  error = get_flash(@conn, :error)
+%>
+<%= if info do %>
+  <div class="alert alert-info" style="position: fixed; width: 100%;" role="alert"><%= info %></div>
+<% end %>
+<%= if error do %>
+  <div class="alert alert-info" style="position: fixed; width: 100%;" role="alert"><%= error %></div>
+<% end %>
 <img class="login-logo" src="<%= static_path(@conn, "/images/logo.svg") %>" />
 <div class="vertical-divider"></div>
 <div class="row" style="width: 100%;">
   <div class="col-md-3"></div> <!-- Spacer -->
   <div class="col-md-2" style="padding-top: 310px">
-    <form style="text-align: center;">
+    <%= form_for @conn, login_path(@conn, :login), [style: "text-align: center;"], fn f -> %>
       <h3 class="h3 mb-3 font-weight-normal">Log in</h3>
       <div class="login-form-group">
-        <input class="form-control" id="login-email" required>
+        <%= email_input f, :email, [class: "form-control", id: "login-email", required: true] %>
         <label for="login-email" class="form-control-placeholder">Email Address</label>
       </div>
       <div class="login-form-group">
-        <input type="password" class="form-control" id="login-pwd" required>
+        <%= password_input f, :password, [class: "form-control", id: "login-pwd", required: true] %>
         <label for="login-pwd" class="form-control-placeholder">Password</label>
       </div>
-      <button class="btn btn-default login-btn">Log in</button>
-    </form>
+      <%= submit "Log in", [class: "btn btn-default login-btn"] %>
+    <%= end %>
   </div>
   <div class="col-md-2" style="text-align: center;"></div> <!-- Spacer -->
   <div class="col-md-2" style="padding-top: 250px">
-    <form style="text-align: center;">
+    <%= form_for @conn, user_path(@conn, :create), [style: "text-align: center;"], fn f -> %>
       <h3 class="h3 mb-3 font-weight-normal">Sign up</h3>
       <div class="login-form-group">
-        <input class="form-control" id="signup-email" required>
+        <%= email_input f, :email, [class: "form-control", id: "signup-email", required: true] %>
         <label for="signup-email" class="form-control-placeholder">Email Address</label>
       </div>
       <div class="login-form-group">
-        <input class="form-control" id="signup-name" required>
+        <%= text_input f, :display_name, [class: "form-control", id: "signup-name", required: true] %>
         <label for="signup-name" class="form-control-placeholder">Display Name</label>
       </div>
       <div class="login-form-group">
-        <input type="password" class="form-control" id="signup-pwd" required>
+        <%= password_input f, :password, [class: "form-control", id: "signup-pwd", required: true] %>
         <label for="signup-pwd" class="form-control-placeholder">Password</label>
       </div>
       <div class="login-form-group">
-        <input type="password" class="form-control" id="signup-pwd-confirm" required>
+        <%= password_input f, :confirm_password, [class: "form-control", id: "signup-pwd-confirm", required: true] %>
         <label for="signup-pwd-confirm" class="form-control-placeholder">Confirm Password</label>
       </div>
-      <button class="btn btn-default login-btn">Sign up</button>
-    </form>
+      <%= submit "Sign up", [class: "btn btn-default login-btn"] %>
+    <%= end %>
   </div>
 </div>

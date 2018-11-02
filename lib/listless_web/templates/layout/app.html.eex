@@ -12,6 +12,10 @@
   </head>
 
   <body>
+    <%
+      info = get_flash(@conn, :info)
+      error = get_flash(@conn, :error)
+    %>
     <div clas="container-fluid">
       <%= render @view_module, @view_template, assigns %>
     </div>

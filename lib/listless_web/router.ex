@@ -17,7 +17,15 @@ defmodule ListlessWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
-    get "/login", LoginController, :index
+
+    scope "/login" do
+      get "/", LoginController, :index
+      post "/login", LoginController, :login
+    end
+
+    scope "/users" do
+      post "/create", UserController, :create
+    end
   end
 
   # Other scopes may use custom stacks.
