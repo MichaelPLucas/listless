@@ -12,7 +12,7 @@ defmodule ListlessWeb.UserController do
       {:ok, user} ->
         conn
         |> put_flash(:info, "Account created successfully. Welcome to Listless!")
-        |> ListlessWeb.LoginController.login(params)
+        |> Listless.Auth.login(params)
       {:error, errors} ->
         conn
         |> put_flash(:error, "Something went wrong. Please try again.")

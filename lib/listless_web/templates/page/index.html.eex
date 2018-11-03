@@ -20,7 +20,15 @@
     </form>
   </div>
   <div class="col-md-2">
-    <button class="profile btn btn-default"></button>
+    <button class="profile btn btn-default">
+      <div>
+      <%= if Listless.Auth.logged_in?(@conn) do %>
+        <%= Listless.Auth.current_user(@conn).display_name %>
+      <%= else %>
+        Not signed in
+      <%= end %>
+      </div>
+    </button>
   </div>
 </header>
 <subject class="row">
