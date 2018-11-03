@@ -10,9 +10,15 @@ defmodule ListlessWeb.UserController do
     |> Repo.insert()
     |> case do
       {:ok, user} ->
-        conn
-        |> put_flash(:info, "Account created successfully. Welcome to Listless!")
-        |> Listless.Auth.login(params)
+        put_flash(conn, :info, "Account created successfully. Welcome to Listless!")
+        case Listless.Auth.login(params) do
+          {:ok, user} ->
+            redirect(conn, to: "/")
+          {:error, error} ->
+            conn
+            |> put_flash(:error, "Something went horribly wrong. This should never happen. Please contact a developer ASAP.")
+            |> redirect(to: "/login")
+        end
       {:error, errors} ->
         conn
         |> put_flash(:error, "Something went wrong. Please try again.")

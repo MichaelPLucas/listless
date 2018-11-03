@@ -1,12 +1,13 @@
 defmodule Listless.Auth do
   alias Listless.Repo
   alias Listless.User
+  alias Comeonin.Bcrypt
 
   def login(params) do
     user = Repo.get_by(User, email: params["email"])
 
     cond do
-      user && user.password == params["password"] ->
+      user && Bcrypt.checkpw(params["password"], user.password) ->
         {:ok, user}
       true ->
         {:error, :unauthorized}
