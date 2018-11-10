@@ -12,7 +12,7 @@ defmodule ListlessWeb.LoginController do
         conn
         |> put_session(:current_user, user.email)
         |> redirect(to: "/")
-      {:error, error} ->
+      {:error, _error} ->
         conn
         |> put_flash(:error, "Invalid email or password. Please try again.")
         |> redirect(to: "/login")

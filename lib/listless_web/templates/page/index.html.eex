@@ -24,9 +24,9 @@
       <div>
       <%= if Listless.Auth.logged_in?(@conn) do %>
         <%= Listless.Auth.current_user(@conn).display_name %>
-      <%= else %>
+      <% else %>
         Not signed in
-      <%= end %>
+      <% end %>
       </div>
     </button>
   </div>
