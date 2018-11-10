@@ -1,36 +1,4 @@
-<header class="app-header row">
-  <div class="col-md-2">
-    <button class="drawer btn btn-default">
-      <span class="glyphicon glyphicon-menu-hamburger" />
-    </button>
-    <a href="/">
-      <img class="logo" src="<%= static_path(@conn, "/images/logo.svg") %>" />
-    </a>
-  </div>
-  <div class="col-md-8">
-    <form style="height: 100px;">
-      <div class="input-group" style="top: 25px; height: 50px;">
-        <input class="form-control" style="height: 100%;">
-        <span class="input-group-btn" style="height: 100%;">
-          <button class="btn btn-default" style="height: 100%; width: 50px;">
-            <span class="glyphicon glyphicon-search" />
-          </button>
-        </span>
-      </div>
-    </form>
-  </div>
-  <div class="col-md-2">
-    <button class="profile btn btn-default">
-      <div>
-      <%= if Listless.Auth.logged_in?(@conn) do %>
-        <%= Listless.Auth.current_user(@conn).display_name %>
-      <% else %>
-        Not signed in
-      <% end %>
-      </div>
-    </button>
-  </div>
-</header>
+<%= render "header.html", conn: @conn %>
 <subject class="row">
 </subject>
 <article>

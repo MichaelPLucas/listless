@@ -23,8 +23,14 @@ defmodule ListlessWeb.Router do
       post "/login", LoginController, :login
     end
 
-    scope "/users" do
+    scope "/user" do
+      get "/:user_id", UserController, :index
       post "/create", UserController, :create
+    end
+
+    scope "/list" do
+      get "/:list_id", ListController, :index
+      post "/create", ListController, :create
     end
   end
 
