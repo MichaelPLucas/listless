@@ -1,7 +1,5 @@
 <%= render "header.html", conn: @conn %>
-<subject class="row">
-</subject>
-<article>
+<article class="row">
 </article>
 <footer class="row">
 </footer>

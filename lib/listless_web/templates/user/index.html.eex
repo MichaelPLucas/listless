@@ -1,0 +1,18 @@
+<%= render ListlessWeb.PageView, "header.html", conn: @conn %>
+<article class="row">
+  <div class="col-md-2"></div> <!-- Spacer -->
+  <div class="col-md-8" style="text-align: center;">
+    <h2>Lists</h2>
+    <%= for list <- created_lists(@conn, @user_id) do %>
+      <a class="btn btn-default" href="<%= "/list/" <> to_string(list.id) %>"><%= list.title %></a>
+    <% end %>
+    <%= form_for @conn, list_path(@conn, :create), fn f -> %>
+      <%= text_input f, :title %>
+      <%= radio_button f, :is_public, true %>
+      <%= radio_button f, :is_public, false %>
+      <%= hidden_input f, :user_id, [value: @user_id] %>
+      <%= submit "New List" %>
+    <% end %>
+  </div>
+  <div class="col-md-2"></div> <!-- Spacer -->
+</article>

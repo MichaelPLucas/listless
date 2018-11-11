@@ -6,6 +6,7 @@ defmodule Listless.List do
   schema "lists" do
     field :is_public, :boolean, default: false
     field :user_id, :id
+    field :title, :string
 
     timestamps()
   end
@@ -13,7 +14,7 @@ defmodule Listless.List do
   @doc false
   def changeset(list, attrs) do
     list
-    |> cast(attrs, [:is_public])
-    |> validate_required([:is_public])
+    |> cast(attrs, [:is_public, :user_id, :title])
+    |> validate_required([:is_public, :user_id, :title])
   end
 end

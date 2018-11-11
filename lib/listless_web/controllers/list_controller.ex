@@ -15,7 +15,7 @@ defmodule ListlessWeb.ListController do
       {:ok, list} ->
         conn
         |> put_flash(:info, "List created successfully!")
-        |> redirect(to: ("/list/" + list.id))
+        |> redirect(to: ("/list/" <> to_string(list.id)))
       {:error, _error} ->
         put_flash(conn, :error, "Failed to create list. Please try again.")
     end
