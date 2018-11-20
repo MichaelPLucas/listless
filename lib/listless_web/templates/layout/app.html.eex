@@ -8,13 +8,14 @@
     <meta name="author" content="Michael Lucas">
 
     <title>Listless: Online Shopping Made Even Easier</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
   <body>
-    <div clas="container-fluid">
-      <%= render @view_module, @view_template, assigns %>
-    </div>
+    <%= render @view_module, @view_template, assigns %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>

@@ -3,9 +3,8 @@ defmodule Listless.User do
   import Ecto.Changeset
   alias Comeonin.Bcrypt
 
-  @primary_key {:email, :string, autogenerate: false}
-
   schema "users" do
+    field :email, :string
     field :password, :string
     field :display_name, :string
 
