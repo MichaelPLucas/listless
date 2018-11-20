@@ -1,5 +1,9 @@
 /* This file is for your main application css. */
 
+html {
+  color: #200;
+}
+
 .navbar {
   height: 94px;
 }
@@ -14,32 +18,6 @@ nav .brand-logo {
 
 nav ul a {
   color: #200
-}
-
-.login-form-group {
-  position: relative;
-  margin-top: 30px;
-  margin-bottom: 10px;
-}
-
-.form-control-placeholder {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 7px 0 0 13px;
-  transition: all 200ms;
-  opacity: 0.5;
-}
-
-.form-control:focus + .form-control-placeholder,
-.form-control:valid + .form-control-placeholder {
-  font-size: 75%;
-  transform: translate3d(0, -100%, 0);
-  opacity: 1;
-}
-
-.login-btn {
-  margin-top: 20px;
 }
 
 .vertical-divider {
@@ -61,4 +39,8 @@ nav ul a {
   height: 100px;
   margin-top: 75px;
   margin-bottom: 75px;
+}
+
+.white {
+  color: #200;
 }
