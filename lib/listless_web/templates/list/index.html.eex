@@ -1,1 +1,34 @@
+<% list = get_list(@list_id) %>
+
 <%= render ListlessWeb.PageView, "header.html", conn: @conn %>
+<article style="text-align: center;">
+  <h2><%= list.title %></h2>
+  <%= for item <- list_items(@list_id) do %>
+    <a class="btn white no_uppercase" href="<%= item.link %>">
+      <img src="<%= item.image %>" style="width: 10px; height: 10px;">
+      <%= item.title %>
+      <span><%= item.price %></span>
+    </a>
+  <% end %>
+  <%= form_for @conn, item_path(@conn, :create), [], fn f -> %>
+    <div class="input-field">
+      <%= text_input f, :title, [id: "title", required: true] %>
+      <label for="title">Title</label>
+    </div>
+    <div class="input-field">
+      <%= text_input f, :link, [id: "link", required: true] %>
+      <label for="link">Link</label>
+    </div>
+    <div class="input-field">
+      <%= text_input f, :image, [id: "image", required: true] %>
+      <label for="image">Image</label>
+    </div>
+    <div class="input-field">
+      <%= number_input f, :price, [id: "price", required: true] %>
+      <label for="price">Price</label>
+    </div>
+    <%= hidden_input f, :tags, [value: ""] %>
+    <%= hidden_input f, :list_id, [value: @list_id] %>
+    <%= submit "Add Item", [class: "btn white"] %>
+  <% end %>
+</article>

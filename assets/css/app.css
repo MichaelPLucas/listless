@@ -44,3 +44,7 @@ nav ul a {
 .white {
   color: #200;
 }
+
+.no_uppercase {
+  text-transform: none;
+}

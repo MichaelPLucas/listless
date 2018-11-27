@@ -1,9 +1,8 @@
 <%= render ListlessWeb.PageView, "header.html", conn: @conn %>
-<article class="row">
-  <div class="col-md-2"></div> <!-- Spacer -->
-  <div class="col-md-8" style="text-align: center;">
+<article>
+  <div style="text-align: center;">
     <h2>Lists</h2>
-    <%= for list <- created_lists(@conn, @user_id) do %>
+    <%= for list <- created_lists(@user_id) do %>
       <a class="btn btn-default" href="<%= "/list/" <> to_string(list.id) %>"><%= list.title %></a>
     <% end %>
     <%= form_for @conn, list_path(@conn, :create), [style: "width: 20%; margin-left: 40%;"], fn f -> %>
@@ -27,5 +26,4 @@
       <%= submit "New List", [class: "btn white"] %>
     <% end %>
   </div>
-  <div class="col-md-2"></div> <!-- Spacer -->
 </article>

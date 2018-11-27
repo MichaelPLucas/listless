@@ -19,7 +19,7 @@ defmodule ListlessWeb.ListController do
       {:error, _error} ->
         conn
         |> put_flash(:error, "Failed to create list. Please try again.")
-        |> redirect(to: "/")
+        |> redirect(to: "/user/" <> to_string(params.user_id))
     end
   end
 end

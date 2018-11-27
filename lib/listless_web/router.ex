@@ -32,6 +32,10 @@ defmodule ListlessWeb.Router do
       get "/:list_id", ListController, :index
       post "/create", ListController, :create
     end
+
+    scope "/item" do
+      post "/create", ItemController, :create
+    end
   end
 
   # Other scopes may use custom stacks.
