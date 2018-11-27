@@ -45,6 +45,9 @@ nav ul a {
   color: #200;
 }
 
-.no_uppercase {
+.item {
   text-transform: none;
+  width: 50%;
+  height: auto;
+  padding: 10px;
 }

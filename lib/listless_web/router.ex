@@ -35,6 +35,7 @@ defmodule ListlessWeb.Router do
 
     scope "/item" do
       post "/create", ItemController, :create
+      post "/delete/:id", ItemController, :delete
     end
   end
 

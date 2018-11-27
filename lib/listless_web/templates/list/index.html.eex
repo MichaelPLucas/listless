@@ -4,10 +4,13 @@
 <article style="text-align: center;">
   <h2><%= list.title %></h2>
   <%= for item <- list_items(@list_id) do %>
-    <a class="btn white no_uppercase" href="<%= item.link %>">
+    <a class="btn white item" href="<%= item.link %>">
       <img src="<%= item.image %>" style="width: 10px; height: 10px;">
       <%= item.title %>
       <span><%= item.price %></span>
+      <%= button to: "/item/delete/" <> to_string(item.id), class: "btn white" do %>
+        <i class="material-icons large">delete</i>
+      <% end %>
     </a>
   <% end %>
   <%= form_for @conn, item_path(@conn, :create), [], fn f -> %>
