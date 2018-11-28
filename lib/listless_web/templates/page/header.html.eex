@@ -15,7 +15,7 @@
       <li>
         <%= if Listless.Auth.logged_in?(@conn) do %>
           <a href="<%= "/user/" <> to_string(Listless.Auth.current_user(@conn).id) %>">
-            <%= Listless.Auth.current_user(@conn).display_name %>
+            <%= Listless.Auth.current_user(@conn).name %>
           </a>
         <% else %>
           <a href="/login">

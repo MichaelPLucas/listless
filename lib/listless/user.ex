@@ -3,10 +3,13 @@ defmodule Listless.User do
   import Ecto.Changeset
   alias Comeonin.Bcrypt
 
+  @primary_key {:id, :binary_id, autogenerate: true}
+  @derive {Phoenix.Param, key: :id}
+
   schema "users" do
     field :email, :string
     field :password, :string
-    field :display_name, :string
+    field :name, :string
 
     timestamps()
   end
@@ -14,8 +17,8 @@ defmodule Listless.User do
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:email, :password, :display_name])
-    |> validate_required([:email, :password, :display_name])
+    |> cast(attrs, [:email, :password, :name])
+    |> validate_required([:email, :password, :name])
     |> unique_constraint(:email)
     |> hash_password()
   end
