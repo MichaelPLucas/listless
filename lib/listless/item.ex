@@ -11,7 +11,7 @@ defmodule Listless.Item do
     field :link, :string
     field :price, :decimal
     field :tags, {:array, :string}
-    field :list_id, :id
+    field :list_id, Ecto.UUID
 
     timestamps()
   end

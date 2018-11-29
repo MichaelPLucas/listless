@@ -7,7 +7,7 @@ defmodule Listless.List do
 
   schema "lists" do
     field :is_public, :boolean, default: false
-    field :user_id, :id
+    field :user_id, Ecto.UUID
     field :title, :string
 
     timestamps()

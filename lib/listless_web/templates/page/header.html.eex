@@ -14,7 +14,7 @@
     <ul class="right">
       <li>
         <%= if Listless.Auth.logged_in?(@conn) do %>
-          <a href="<%= "/user/" <> to_string(Listless.Auth.current_user(@conn).id) %>">
+          <a href="<%= "/user/" <> get_extension(@conn) %>">
             <%= Listless.Auth.current_user(@conn).name %>
           </a>
         <% else %>
