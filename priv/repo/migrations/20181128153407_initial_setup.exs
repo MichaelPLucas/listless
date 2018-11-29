@@ -24,6 +24,10 @@ defmodule Listless.Repo.Migrations.InitialSetup do
       add :id, :uuid, primary_key: true, null: false
       add :list_id, references(:lists, on_delete: :delete_all, type: :uuid)
       add :title, :string, null: false
+      add :image, :string, null: false
+      add :link, :string, null: false
+      add :price, :decimal, null: false
+      add :tags, {:array, :string}, default: [], null: false
       
       timestamps()
     end
