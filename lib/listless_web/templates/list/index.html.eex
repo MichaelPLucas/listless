@@ -1,9 +1,9 @@
-<% list = get_list(@list_id) %>
+<% list = get_list(Listless.Util.convert_to_uuid(@list_id)) %>
 
 <%= render ListlessWeb.PageView, "header.html", conn: @conn %>
 <article style="text-align: center;">
   <h2><%= list.title %></h2>
-  <%= for item <- list_items(@list_id) do %>
+  <%= for item <- list_items(Listless.Util.convert_to_uuid(@list_id)) do %>
     <a class="btn white item" href="<%= item.link %>">
       <img src="<%= item.image %>" style="width: 10px; height: 10px;">
       <%= item.title %>
@@ -31,7 +31,7 @@
       <label for="price">Price</label>
     </div>
     <%= hidden_input f, :tags, [value: ""] %>
-    <%= hidden_input f, :list_id, [value: @list_id] %>
+    <%= hidden_input f, :list_id, [value: Listless.Util.convert_to_uuid(@list_id)] %>
     <%= submit "Add Item", [class: "btn white"] %>
   <% end %>
 </article>
