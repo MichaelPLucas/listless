@@ -15,8 +15,7 @@ defmodule Listless.Repo.Migrations.InitialSetup do
       add :id, :uuid, primary_key: true, null: false
       add :user_id, references(:users, on_delete: :delete_all, type: :uuid)
       add :title, :string, null: false
-      add :email, :string, null: false
-      add :password, :string, null: false
+      add :is_public, :boolean, default: true, null: false
 
       timestamps()
     end
@@ -25,7 +24,6 @@ defmodule Listless.Repo.Migrations.InitialSetup do
       add :id, :uuid, primary_key: true, null: false
       add :list_id, references(:lists, on_delete: :delete_all, type: :uuid)
       add :title, :string, null: false
-      add :is_public, :boolean, default: true, null: false
       
       timestamps()
     end
