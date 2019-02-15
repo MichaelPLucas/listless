@@ -18,4 +18,10 @@ defmodule ListlessWeb.LoginController do
         |> redirect(to: "/login")
     end
   end
+
+  def logout(conn, params) do
+    conn
+    |> delete_session(:current_user)
+    |> redirect(to: "/")
+  end
 end

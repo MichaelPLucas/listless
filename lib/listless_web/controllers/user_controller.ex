@@ -16,7 +16,9 @@ defmodule ListlessWeb.UserController do
         put_flash(conn, :info, "Account created successfully. Welcome to Listless!")
         case Listless.Auth.login(params) do
           {:ok, _user} ->
-            redirect(conn, to: "/")
+            conn
+            |> put_session(:current_user, params.email)
+            |> redirect(to: "/")
           {:error, _error} ->
             conn
             |> put_flash(:error, "Something went horribly wrong. This should never happen. Please contact a developer ASAP.")

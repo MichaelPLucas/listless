@@ -25,5 +25,8 @@
       <%= hidden_input f, :user_id, [value: Listless.Util.convert_to_uuid(@user_id)] %>
       <%= submit "New List", [class: "btn white"] %>
     <% end %>
+    <%= form_for @conn, login_path(@conn, :logout), fn f -> %>
+      <%= submit "Logout", [class: "btn red"] %>
+    <% end %>
   </div>
 </article>

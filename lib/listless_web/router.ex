@@ -21,6 +21,7 @@ defmodule ListlessWeb.Router do
     scope "/login" do
       get "/", LoginController, :index
       post "/login", LoginController, :login
+      post "/logout", LoginController, :logout
     end
 
     scope "/user" do
