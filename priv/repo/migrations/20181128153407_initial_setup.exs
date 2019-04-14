@@ -33,7 +33,7 @@ defmodule Listless.Repo.Migrations.InitialSetup do
     end
 
     create unique_index(:users, [:email])
-    create unique_index(:lists, [:user_id])
-    create unique_index(:items, [:list_id])
+    create index(:lists, [:user_id])
+    create index(:items, [:list_id])
   end
 end

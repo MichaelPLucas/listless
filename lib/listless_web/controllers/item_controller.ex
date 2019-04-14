@@ -11,7 +11,7 @@ defmodule ListlessWeb.ItemController do
       {:ok, item} ->
         conn
         |> put_flash(:info, "Item created successfully!")
-        |> redirect(to: "/list/" <> to_string(item.list_id))
+        |> redirect(to: "/list/" <> Listless.Util.convert_to_base64(item.list_id))
       {:error, error} ->
         conn
         |> put_flash(:error, "Item creation failed!")
@@ -26,11 +26,11 @@ defmodule ListlessWeb.ItemController do
       {:ok, _item} ->
         conn
         |> put_flash(:info, "Item deleted successfully!")
-        |> redirect(to: "/list/" <> to_string(item.list_id))
+        |> redirect(to: "/list/" <> Listless.Util.convert_to_base64(item.list_id))
       {:error, error} ->
         conn
         |> put_flash(:error, "Item deletion failed!")
-        |> redirect(to: "/list/" <> to_string(item.list_id))
+        |> redirect(to: "/list/" <> Listless.Util.convert_to_base64(item.list_id))
     end
   end
 end

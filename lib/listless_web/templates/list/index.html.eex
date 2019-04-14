@@ -13,25 +13,29 @@
       <% end %>
     </a>
   <% end %>
-  <%= form_for @conn, item_path(@conn, :create), [], fn f -> %>
-    <div class="input-field">
-      <%= text_input f, :title, [id: "title", required: true] %>
-      <label for="title">Title</label>
+  <%= if Listless.Auth.current_user(@conn) != nil and list.user_id == Listless.Auth.current_user(@conn).id do %>
+    <div style="width: 40%; left: 30%; position: absolute">
+      <%= form_for @conn, item_path(@conn, :create), [], fn f -> %>
+        <div class="input-field">
+          <%= text_input f, :title, [id: "title", required: true] %>
+          <label for="title">Title</label>
+        </div>
+        <div class="input-field">
+          <%= text_input f, :link, [id: "link", required: true] %>
+          <label for="link">Link</label>
+        </div>
+        <div class="input-field">
+          <%= text_input f, :image, [id: "image", required: true] %>
+          <label for="image">Image</label>
+        </div>
+        <div class="input-field">
+          <%= text_input f, :price, [id: "price", required: true] %>
+          <label for="price">Price</label>
+        </div>
+        <%= hidden_input f, :tags, [value: ""] %>
+        <%= hidden_input f, :list_id, [value: Listless.Util.convert_to_uuid(@list_id)] %>
+        <%= submit "Add Item", [class: "btn white"] %>
+      <% end %>
     </div>
-    <div class="input-field">
-      <%= text_input f, :link, [id: "link", required: true] %>
-      <label for="link">Link</label>
-    </div>
-    <div class="input-field">
-      <%= text_input f, :image, [id: "image", required: true] %>
-      <label for="image">Image</label>
-    </div>
-    <div class="input-field">
-      <%= number_input f, :price, [id: "price", required: true] %>
-      <label for="price">Price</label>
-    </div>
-    <%= hidden_input f, :tags, [value: ""] %>
-    <%= hidden_input f, :list_id, [value: Listless.Util.convert_to_uuid(@list_id)] %>
-    <%= submit "Add Item", [class: "btn white"] %>
   <% end %>
 </article>
