@@ -5,28 +5,30 @@
     <%= for list <- created_lists(Listless.Util.convert_to_uuid(@user_id)) do %>
       <a class="btn btn-default" href="<%= "/list/" <> Listless.Util.convert_to_base64(list.id) %>"><%= list.title %></a>
     <% end %>
-    <%= form_for @conn, list_path(@conn, :create), [style: "width: 20%; margin-left: 40%;"], fn f -> %>
-      <div class="input-field">
-        <%= text_input f, :title, [id: "title", required: true] %>
-        <label for="title">Title</label>
-      </div>
-      <p>
-        <label>
-          <%= radio_button f, :is_public, true, [checked: true] %>
-          <span>Public</span>
-        </label>
-      </p>
-      <p>
-        <label>
-          <%= radio_button f, :is_public, false %>
-          <span>Private</span>
-        </label>
-      </p>
-      <%= hidden_input f, :user_id, [value: Listless.Util.convert_to_uuid(@user_id)] %>
-      <%= submit "New List", [class: "btn white"] %>
-    <% end %>
-    <%= form_for @conn, login_path(@conn, :logout), fn f -> %>
-      <%= submit "Logout", [class: "btn red"] %>
+    <%= if Listless.Util.convert_to_uuid(@user_id) == Listless.Auth.current_user(@conn).id do %>
+      <%= form_for @conn, list_path(@conn, :create), [style: "width: 20%; margin-left: 40%;"], fn f -> %>
+        <div class="input-field">
+          <%= text_input f, :title, [id: "title", required: true] %>
+          <label for="title">Title</label>
+        </div>
+        <p>
+          <label>
+            <%= radio_button f, :is_public, true, [checked: true] %>
+            <span>Public</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <%= radio_button f, :is_public, false %>
+            <span>Private</span>
+          </label>
+        </p>
+        <%= hidden_input f, :user_id, [value: Listless.Util.convert_to_uuid(@user_id)] %>
+        <%= submit "New List", [class: "btn white"] %>
+      <% end %>
+      <%= form_for @conn, login_path(@conn, :logout), fn f -> %>
+        <%= submit "Logout", [class: "btn red"] %>
+      <% end %>
     <% end %>
   </div>
 </article>

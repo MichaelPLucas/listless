@@ -1,6 +1,10 @@
 defmodule Listless.Util do
   def convert_to_uuid(id) do
-    base16 = Base.encode16(Base.decode64!(id), case: :lower)
+    base16 = id
+    |> String.replace("-", "+")
+    |> String.replace("_", "/")
+    |> Base.decode64!(case: :lower)
+    |> Base.encode16()
     uuid = String.slice(base16, 0..7) <> "-" <>
            String.slice(base16, 8..11) <> "-" <>
            String.slice(base16, 12..15) <> "-" <> 
@@ -10,6 +14,11 @@ defmodule Listless.Util do
   end
 
   def convert_to_base64(id) do
-    Base.encode64(Base.decode16!(String.replace(to_string(id), "-", ""), case: :lower))
+    to_string(id)
+    |> String.replace("-", "")
+    |> Base.decode16!(case: :lower)
+    |> Base.encode64()
+    |> String.replace("+", "-")
+    |> String.replace("/", "_")
   end
 end
